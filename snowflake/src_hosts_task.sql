@@ -17,7 +17,7 @@ CREATE OR REPLACE PROCEDURE CREATE_SRC_HOSTS_PROC ( )
     AS
         $$
         -- create table
-        var create_stmt = "CREATE OR REPLACE TABLE airbnb.silver.src_hosts (host_id integer, host_name string, is_superhost string, created_at datetime, updated_at datetime);"
+        var create_stmt = "CREATE TABLE IF NOT EXISTS airbnb.silver.src_hosts (host_id integer, host_name string, is_superhost string, created_at datetime, updated_at datetime);"
         -- insert into table
         var load_stmt = " INSERT INTO airbnb.silver.src_hosts SELECT id AS host_id, NAME AS host_name, is_superhost, created_at, updated_at FROM tasks.bronze.raw_hosts_stream;"
 
@@ -47,4 +47,3 @@ SELECT * FROM airbnb.silver.src_hosts;
 
 SELECT * FROM airbnb.bronze.raw_hosts_stream;
 
-ALTER TASK CREATE_SRC_HOSTS_TASK SUSPEND;
