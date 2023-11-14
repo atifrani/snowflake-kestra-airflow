@@ -11,7 +11,7 @@ In this demo, we present 3 examples to automatically execute your SQL code,
   * Using Kestra flow
 
 ###  Workflow architecture 
-![Workflow architecture](images/Workflow.png)  
+![Workflow architecture](images/workflow.png)  
 
 ### Data model
 ![Data model](images/datamodel.png)  
