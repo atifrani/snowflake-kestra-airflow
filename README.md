@@ -11,9 +11,11 @@ In this demo, we present 3 examples to automatically execute your SQL code,
   * Using Kestra flow
 
 ###  Workflow architecture 
-![Workflow architecture](images/Workflow.png)
+![Workflow architecture](images/Workflow.png)  
 
 ### Data model
+![Data model](images/datamodel.png)  
+
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ Before running the project. You need:
 
 ## Lessons Learned
 
-It's good to reflect on what you learned throughout the process of building this project. Here you might discuss what you would have done differently if you had more time/money/data. Did you end up choosing the right tools or would you try something else next time?
+Choosing between Kestra and Airflow will depend on your specific needs, your familiarity with the platforms, and the complexity of your pipelines. If you're looking for a simple, easy-to-use platform, Kestra may be a better fit. On the other hand, if you need a more mature platform with a wide range of features and integrations, Airflow might be the better choice.
 
 ## Contact
 
