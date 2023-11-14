@@ -1,39 +1,32 @@
-# Data Engineering Project Template
+# Data Engineering Project
 
-This is a template you can use for your next data engineering portfolio project. To copy it, log into GitHub and click on the **Use this template** button above.
-
-![GitHub use this template button](use-this-template-button.png)
+This is an introduction to how schedule sql transformations in snowflake.
 
 ## Overview
 
-Here you want to write a short overview of the goals of your project and how it works at a high level. If possible, include one or two images of the end product and architecture diagram (see examples below). diagrams.net is a great tool for creating architecture diagrams.
+If you work as a data analyst/engineer, you probably work with SQL. Although SQL is simple to learn, you may have already wondered how to get your SQL code to run automatically.
+In this demo, we present 3 examples to automatically execute your SQL code,  
+  * Using snowflake Tasks and Streams
+  * Using apache aiflow dag
+  * Using Kestra flow
 
-### Data Visualization
+###  Workflow architecture 
+![Workflow architecture](images/Workflow.png)
 
-![Example dashboard image](example-dashboard.png)
-
-### Data Architecture
-
-![Example architecture image](example-architecture.png)
-
-If you decide to include this, you should also talk a bit about why you chose the architecture and tools you did for this project.
+### Data model
 
 ## Prerequisites
 
-Directions or anything needed before running the project.
+Before running the project. You need:
 
-- Prerequisite 1
-- Prerequisite 2
-- Prerequisite 3
+- Snowflake trial account
+- Docker desktop installed
+- Airflow docker image
+- Kestra docker image
 
 ## How to Run This Project
 
-Replace the example step-by-step instructions with your own.
 
-1. Install x packages
-2. Run command: `python x`
-3. Make sure it's running properly by checking z
-4. To clean up at the end, run script: `python cleanup.py`
 
 ## Lessons Learned
 
@@ -41,4 +34,7 @@ It's good to reflect on what you learned throughout the process of building this
 
 ## Contact
 
-Please feel free to contact me if you have any questions at: LinkedIn, Twitter
+Please feel free to contact me if you have any questions at:   
+LinkedIn : https://www.linkedin.com/in/axel-tifrani/  
+Email : axeltifrani@gmail.com  
+ 

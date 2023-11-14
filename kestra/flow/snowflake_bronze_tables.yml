@@ -1,0 +1,38 @@
+id: snowflake_bronze_tables
+namespace: dev
+
+tasks:
+  - id: dag_raw_hosts
+    description: "airbnb data flow raw hosts"
+    type: io.kestra.core.tasks.flows.Dag
+    tasks:
+
+    - task:    
+          id: create_raw_hosts
+          type: io.kestra.plugin.jdbc.snowflake.Query
+          sql: |
+               CREATE OR REPLACE TABLE raw_hosts_kst
+                          (id integer,
+                           name string,
+                           is_superhost string,
+                           created_at datetime,
+                           updated_at datetime);
+    - task:
+          id: load_raw_hosts 
+          type: io.kestra.plugin.jdbc.snowflake.Query
+          sql: |
+              COPY INTO raw_hosts_kst  (id, name, is_superhost, created_at, updated_at)
+              from 's3://logbrain-datasets/airbnb/hosts.csv'
+              FILE_FORMAT = (type = csv field_optionally_enclosed_by='"' skip_header = 1);
+      dependsOn:
+          - create_raw_hosts
+          
+taskDefaults:
+  - type: io.kestra.plugin.jdbc.snowflake.Query
+    values:
+      url: jdbc:snowflake://your-account.snowflakecomputing.com
+      warehouse: COMPUTE_WH
+      username: user
+      password: password
+      database: AIRBNB
+      schema: BRONZE

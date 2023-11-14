@@ -1,0 +1,43 @@
+id: snowflake_silver_tables
+namespace: dev
+
+tasks:
+  - id: dag_src_hosts
+    description: "airbnb data flow src hosts"
+    type: io.kestra.core.tasks.flows.Dag
+    tasks:
+    - task:
+          id: createTable_src_listings
+          type: io.kestra.plugin.jdbc.snowflake.Query
+          sql : |
+                CREATE OR REPLACE TABLE src_listings_kst
+                    (listings_id integer,
+                    listings_url string,
+                    listings_name string,
+                    room_type string,
+                    minimum_nights integer,
+                    host_id integer,
+                    price_str string,
+                    created_at datetime,
+                    updated_at datetime);
+  
+    - task:
+          id: insert_src_listings
+          type: io.kestra.plugin.jdbc.snowflake.Query
+          sql: |
+                insert into src_listings_kst 
+                SELECT  id AS listing_id,  name AS listing_name,  listing_url,  room_type,  minimum_nights,
+                host_id, price AS price_str, created_at, updated_at 
+                FROM airbnb.raw.raw_listings_kst
+        dependsOn:
+              - createTable_src_listings
+              
+taskDefaults:
+  - type: io.kestra.plugin.jdbc.snowflake.Query
+    values:
+      url: jdbc:snowflake://your-account.snowflakecomputing.com
+      warehouse: COMPUTE_WH
+      username: user
+      password: password
+      database: AIRBNB
+      schema: SILVER
