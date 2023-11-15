@@ -37,17 +37,19 @@ Specifically, you can create a Table Streams on a source table to buffer INSERT,
 If there is new data, the Task will execute a query to extract the modified rows from the Stream.  
 For example, it can insert only new INSERT rows into a separate audit table. If the Stream contains no new data, the Scheduled Task will simply skip the current execution.  
 
-1. connect to you snowflake accout.  
+1. Connect to you snowflake accout.  
 2. Open snowflake worksheet.  
-3. copy and run the following scripts one by one to first understand how snowflake tasks and streams work.
-  * snowflake/task-examples.sql
-  * snowflake/task-streams.sql
-  * snowflake/task-streams-examples.sql
-4. after this you can run the following scripts implement the data pipline describe above.
-  * snowflake/raw_hosts_task.sql
-  * snowflake/src_hosts_task.sql
-  * snowflake/raw_listings_task.sql
-  * snowflake/src_listings_task.sql
+3. 
+First, copy and run the following scripts one by one to first understand how snowflake tasks and streams work.  
+  * snowflake/task-examples.sql  
+  * snowflake/task-streams.sql  
+  * snowflake/task-streams-examples.sql  
+4. After this you can run the following scripts implement the data pipline describe above.  
+  * snowflake/raw_hosts_task.sql  
+  * snowflake/src_hosts_task.sql  
+  * snowflake/raw_listings_task.sql  
+  * snowflake/src_listings_task.sql  
+  * snowflake/dmt_host_listings_task.sql  
 
 ## Lessons Learned
 
